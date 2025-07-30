@@ -3,7 +3,7 @@ name: Build
 on: push
 
 jobs:
-  release:
+  build:
     runs-on: ${{ matrix.os }}
 
     permissions:
@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -36,3 +36,45 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run dist
         shell: bash
+      
+      - uses: actions/upload-artifact@v4
+        name: Action-Upload
+        with:
+          name: windows-release
+          path: |
+            dist/latest*.yml
+            dist/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}*
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+
+    steps:
+      - name: Get latest release version tag number
+        id: get_version
+        uses: battila7/get-version-action@v2
+
+      - uses: actions/download-artifact@v4
+        name: Action-Download
+        with:
+          path: dist
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: NumaLauncher - ${{ steps.get_version.outputs.version }}
+          body: |
+            ### ▼ご使用のOSのインストーラーをダウンロードしてください。
+            [Windows](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/GlowLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.exe)
+            [Linux](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.Appimage)
+
+            ### ビルド情報
+            ${{ steps.get_version.outputs.version }} by ${{ github.actor }}
+          draft: false
+          prerelease: false
+          files: |
+            dist/**/latest*.yml
+            dist/**/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}*
