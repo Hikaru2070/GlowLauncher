@@ -1,5 +1,5 @@
 appId: 'glowlauncher'
-productName: 'Glow Launcher'
+productName: 'GlowLauncher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2018-2025 Daniel Scalzi Modded by Glow.Dev'
