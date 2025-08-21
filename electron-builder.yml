@@ -43,7 +43,7 @@ linux:
   maintainer: 'Daniel Scalzi & Glow.Dev'
   vendor: 'Daniel Scalzi Glow.Dev'
   synopsis: 'Minecraft Modランチャー'
-  description: 'サーバーMODの導入を簡単にできるランチャーです。'
+  description: 'サーバーMODの導入を簡単にできるランチャーです'
   category: 'Game'
 
 
