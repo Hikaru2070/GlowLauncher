@@ -18,7 +18,6 @@ win:
   target: 
     - target: 'nsis'
       arch: 'x64'
-      sign: null
 
 # Windows Installer Configuration
 nsis:
