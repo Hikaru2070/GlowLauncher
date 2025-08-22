@@ -28,7 +28,7 @@ jobs:
           python-version: 3.x
 
       - name: Install Dependencies
-        run: npm auditnpm ci
+        run: npm audit && npm ci
         shell: bash
 
       - name: Build
