@@ -1,6 +1,6 @@
 {
   "name": "glowlauncher",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "productName": "Glow Launcher",
   "description": "サーバーMODの導入を簡単にできるランチャーです。",
   "author": "Daniel Scalzi (https://github.com/dscalzi/)",
@@ -46,6 +46,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
+    "url": "git+https://github.com/hikaru2070/GlowLauncher.git"
   }
 }
