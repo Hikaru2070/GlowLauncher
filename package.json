@@ -1,9 +1,9 @@
 {
   "name": "glowlauncher",
-  "version": "2.3.8",
-  "productName": "Glow Launcher",
+  "version": "2.3.9",
+  "productName": "GlowLauncher",
   "description": "サーバーMODの導入を簡単にできるランチャーです。",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
+  "author": "Glow.Dev (https://github.com/hikaru2070/)",
   "license": "UNLICENSED",
   "homepage": "https://github.com/hikaru2070/GlowLauncher",
   "bugs": {
